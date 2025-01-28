@@ -4,7 +4,7 @@ import BlogGridLayout from "@/components/layout/BlogGridLayout";
 import Button from "@/components/pure/Button";
 import SearchBar from "@/components/pure/SearchBar";
 import { IMAGEREGEX } from "@/constants/regex";
-import { fetchAllTags, fetchBlogPostById, fetchRelatedPosts } from "@/lib/blogService";
+import { fetchBlogPostById, fetchRelatedPosts } from "@/lib/blogService";
 import { BlogPostType } from "@/types/blog-post";
 import { RelatedPost } from "@/types/related-posts";
 import { capitalize } from "@/utils/functions";
