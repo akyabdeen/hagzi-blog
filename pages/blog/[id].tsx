@@ -18,6 +18,8 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
         
         const fullPath = context.resolvedUrl;
 
+        // do something
+
         const blogPost = await fetchBlogPostById(Number(id));
         const relatedPosts = await fetchRelatedPosts(Number(id));
         
