@@ -4,14 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import Tag from "../pure/Tag";
 
-const blogPost = {
-    id: 1554,
-    cover_image_url: 'https://hagzi.jo/wp-content/uploads/2023/01/300-expats-on-where-to-live-in-amman.webp',
-    title_en: '300 Expats on where to live in Amman',
-    description_en: 'Living in Amman is definitely easy & safe. According to Jordan Times, we are ranked among the 9th safest country in the world.  Confused about where to live in Amman?  Let us guide you step by step to make an informed decision, don’t worry! Most of the areas in west Amman are suitable to live …',
-    tags: 'new tag 7-1 en,tag2'
-}
-
 export default function BlogPostCover({post, key}: {post: BlogPostCoverType, key?: string | number}) {
     const {id, cover_image_url, title_en, description_en, tags} = post;
     

@@ -23,10 +23,10 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
         const tags = await fetchAllTags();
 
         return { props: { blogArticles, tags, pathname } };
-    } catch (error) {
+    } catch (error: unknown | Error) {
         return {
             redirect: {
-                destination: `/error?message=${encodeURIComponent((error as any).message)}`,
+                destination: `/error?message=${encodeURIComponent(error instanceof CustomError ? error.message : "This error")}`,
                 permanent: false,
             }
         }
@@ -79,8 +79,8 @@ export default function Blog({ blogArticles, tags, pathname }: { blogArticles: B
                                 <p className="text-2xl text-hagzi_blue font-semibold my-4">Tags</p>
                                 <ul className="flex flex-wrap gap-2">
                                     {tags.map((tag, tagIndex) => (
-                                        <li>
-                                            <Tag key={tagIndex}>{tag.title_en}</Tag>
+                                        <li key={tagIndex}>
+                                            <Tag>{tag.title_en}</Tag>
                                         </li>
                                     ))}
                                 </ul>
