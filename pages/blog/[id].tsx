@@ -34,7 +34,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     } catch (error: Error | unknown) {
         return {
             redirect: {
-                destination: `/error?message=${encodeURIComponent(error instanceof CustomError ? error.message : "This error")}`,
+                destination: `/error?message=${encodeURIComponent(error instanceof Error ? error.message : "This error")}`,
                 permanent: false,
             }
         }

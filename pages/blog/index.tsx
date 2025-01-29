@@ -26,7 +26,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
     } catch (error: unknown | Error) {
         return {
             redirect: {
-                destination: `/error?message=${encodeURIComponent(error instanceof CustomError ? error.message : "This error")}`,
+                destination: `/error?message=${encodeURIComponent(error instanceof Error ? error.message : "This error")}`,
                 permanent: false,
             }
         }
