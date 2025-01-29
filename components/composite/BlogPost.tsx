@@ -3,7 +3,7 @@ import Image from "next/image";
 import { BlogPostType } from "@/types/blog-post";
 import { IMAGEREGEX } from "@/constants/regex";
 
-export default function BlogPost({blogPost, id}: {blogPost: BlogPostType, id: number}) {
+export default function BlogPost({blogPost}: {blogPost: BlogPostType}) {
     const {cover_image_url, description_en} = blogPost.article;
 
     return (

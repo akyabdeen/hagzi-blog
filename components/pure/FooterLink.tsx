@@ -5,8 +5,8 @@ export default function FooterLinks({footerLinks: {title, links}}: {footerLinks:
         <div>
             <p className="font-semibold cursor-pointer">{title}</p>
             <ul>
-                {links.map(link => (
-                    <li>
+                {links.map((link, linkIndex) => (
+                    <li key={linkIndex}>
                         <span className="hover:text-hagzi_blue hover:font-semibold cursor-pointer w-fit">
                             {link}
                         </span>
