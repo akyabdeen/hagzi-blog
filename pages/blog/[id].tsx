@@ -86,7 +86,7 @@ export default function BlogPostPage({fullPath, blogPost, relatedPosts, id}: {fu
                         <BlogGridLayout 
                             leftElement={(
                                 <div className="">
-                                    <BlogPost blogPost={blogPost} id={id} />
+                                    <BlogPost blogPost={blogPost} />
                                     {/* <div className="flex flex-col gap-2 sm:gap-0 sm:flex-row rounded-md text-white">
                                         {blogPost.prevArticles && <Link href={`/blog/${blogPost.prevArticles.id}`} className={`pl-6 py-4 w-full h-full bg-hagzi_blue flex justify-start rounded-l-md rounded-r-md sm:rounded-l-md sm:rounded-r-${blogPost.nextArticles ? 'none' : 'md'} cursor-pointer`}>Prev - {blogPost.prevArticles.title_en}</Link>}
                                         {blogPost.nextArticles && <Link href={`/blog/${blogPost.nextArticles.id}`}  className={`pr-6 py-4 w-full h-full bg-hagzi_blue flex justify-end rounded-l-md rounded-r-md sm:rounded-r-md sm:rounded-l-${blogPost.prevArticles ? 'none' : 'md'} cursor-pointer`}>Next - {blogPost.nextArticles?.title_en}</Link>}
