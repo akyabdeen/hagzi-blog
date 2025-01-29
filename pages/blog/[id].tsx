@@ -28,7 +28,6 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
                 fullPath,
                 blogPost,
                 relatedPosts,
-                id
             }
         }
     } catch (error: Error | unknown) {
@@ -41,7 +40,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     }
 }
 
-export default function BlogPostPage({fullPath, blogPost, relatedPosts, id}: {fullPath: string, blogPost: BlogPostType, relatedPosts: RelatedPost[], id: number}) {    
+export default function BlogPostPage({fullPath, blogPost, relatedPosts}: {fullPath: string, blogPost: BlogPostType, relatedPosts: RelatedPost[]}) {    
     const crumbs = fullPath.split('/');
 
     return (
