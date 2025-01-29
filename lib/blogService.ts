@@ -1,7 +1,7 @@
 export const fetchBlogPosts = async (page: string | undefined, search: string | undefined) => {
-    const res = await fetch(`https://93a1-82-212-85-210.ngrok-free.app/blog-articles?page=${page ? page : 1}&search_term=${search ? search : ""}`);
+    const res = await fetch(`https://5173-82-212-85-210.ngrok-free.app/blog-articles?page=${page ? page : 1}&search_term=${search ? search : ""}`);
 
-    console.log(`https://93a1-82-212-85-210.ngrok-free.app/blog-articles?page=${page ? page : 1}&search_term=${search ? search : ""}`);
+    console.log(`https://5173-82-212-85-210.ngrok-free.app/blog-articles?page=${page ? page : 1}&search_term=${search ? search : ""}`);
 
     const { data } = await res.json();
 
@@ -9,14 +9,14 @@ export const fetchBlogPosts = async (page: string | undefined, search: string | 
 }
 
 export const fetchBlogPostById = async (id: number) => {
-    const res = await fetch(`https://93a1-82-212-85-210.ngrok-free.app/blog-articles/${id}`);
+    const res = await fetch(`https://5173-82-212-85-210.ngrok-free.app/blog-articles/${id}`);
     const { data } = await res.json();
 
     return data;
 }
 
 export const fetchRelatedPosts = async (id: number) => {
-    const res = await fetch(`https://93a1-82-212-85-210.ngrok-free.app/blog-articles/related-articles/${id}`);
+    const res = await fetch(`https://5173-82-212-85-210.ngrok-free.app/blog-articles/related-articles/${id}`);
 
     const { data } = await res.json();
 
@@ -24,7 +24,7 @@ export const fetchRelatedPosts = async (id: number) => {
 }
 
 export const fetchAllTags = async () => {
-    const res = await fetch('https://93a1-82-212-85-210.ngrok-free.app/blog-articles/tags');
+    const res = await fetch('https://5173-82-212-85-210.ngrok-free.app/blog-articles/tags');
 
     const { data } = await res.json();
 

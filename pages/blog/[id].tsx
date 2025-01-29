@@ -46,16 +46,19 @@ export default function BlogPostPage({fullPath, blogPost, relatedPosts, id}: {fu
 
     return (
         <>
-            <div className="relative h-96">
-                <div className="relative z-10 text-white text-4xl md:text-6xl font-bold h-full flex items-center pl-4 pr-4 xl:pr-0 xl:pl-56">
-                    {blogPost?.article['title_en']}
-                </div>
-                <div className="absolute inset-0 z-0">
-                    <Image src="https://i.ytimg.com/vi/zumJJUL_ruM/maxresdefault.jpg" alt="Beautiful home" fill className="object-cover"/>
-                    <div className={`relative w-full h-full bg-black/50 z-10`}></div>
+            <div className="relative h-96 flex">
+                <div className="container mx-auto flex justify-center md:justify-start items-center">
+                    <div className="relative z-10 px-16 lg:px-10 text-white text-4xl md:text-6xl font-bold text-center md:text-start">
+                        {blogPost?.article['title_en']}
+                    </div>
+                    <div className="absolute inset-0 z-0">
+                        <Image src="https://i.ytimg.com/vi/zumJJUL_ruM/maxresdefault.jpg" alt="Beautiful home" fill className="object-cover"/>
+                        <div className={`relative w-full h-full bg-black/50 z-10`}></div>
+                    </div>
                 </div>
             </div>
-            <ul className="py-3 flex flex-wrap px-2 gap-2 justify-center text-xl bg-white">
+            <div className="bg-white text-xl py-4">
+                <ul className="container px-16 lg:px-10 mx-auto flex flex-wrap justify-center md:justify-start gap-4">
                     <li>
                         <Link href="/">
                             Home ·
@@ -64,34 +67,41 @@ export default function BlogPostPage({fullPath, blogPost, relatedPosts, id}: {fu
                     {crumbs.map((path, pathIndex) => (
                         <>
                             {pathIndex !== 0 && (
-                                <li key={pathIndex}>
-                                    <Link href={`/${crumbs.slice(0, pathIndex + 1).join('/')}`}>
-                                        {pathIndex === crumbs.length - 1 ? blogPost?.article['title_en'] : capitalize(path)} {pathIndex === 0 || pathIndex === crumbs.length - 1 ? '' : '·'}
-                                    </Link>
+                                <li key={pathIndex} className={pathIndex === crumbs.length - 1 ? 'text-hagzi_blue font-semibold' : ''}>
+                                    {pathIndex !== crumbs.length - 1 ? (
+                                        <Link href={`/${crumbs.slice(0, pathIndex + 1).join('/')}`}>
+                                            {pathIndex === crumbs.length - 1 ? blogPost?.article['title_en'] : capitalize(path)} ·
+                                        </Link>
+                                        ) : (
+                                            `${pathIndex === crumbs.length - 1 ? blogPost?.article['title_en'] : capitalize(path)}`
+                                        )}
                                 </li>
                             )}
                         </>
                     ))}
                 </ul>
+            </div>
             <div className="flex flex-col px-0 justify-center">
-                <BlogGridLayout 
-                    leftElement={(
-                        <div className="">
-                            <BlogPost blogPost={blogPost} id={id} />
-                            {/* <div className="flex flex-col gap-2 sm:gap-0 sm:flex-row rounded-md text-white">
-                                {blogPost.prevArticles && <Link href={`/blog/${blogPost.prevArticles.id}`} className={`pl-6 py-4 w-full h-full bg-hagzi_blue flex justify-start rounded-l-md rounded-r-md sm:rounded-l-md sm:rounded-r-${blogPost.nextArticles ? 'none' : 'md'} cursor-pointer`}>Prev - {blogPost.prevArticles.title_en}</Link>}
-                                {blogPost.nextArticles && <Link href={`/blog/${blogPost.nextArticles.id}`}  className={`pr-6 py-4 w-full h-full bg-hagzi_blue flex justify-end rounded-l-md rounded-r-md sm:rounded-r-md sm:rounded-l-${blogPost.prevArticles ? 'none' : 'md'} cursor-pointer`}>Next - {blogPost.nextArticles?.title_en}</Link>}
-                            </div> */}
-                        </div>
-                    )}
-                    rightElement={(
-                        <div className="flex flex-col gap-10">
-                            <SearchBar/>
-                            <BecomeAnAgent />
-                        </div>
-                    )}
-                    />
-                    <div className="container mx-auto px-6">
+                    <div className="container mx-auto px-10">
+                        <BlogGridLayout 
+                            leftElement={(
+                                <div className="">
+                                    <BlogPost blogPost={blogPost} id={id} />
+                                    {/* <div className="flex flex-col gap-2 sm:gap-0 sm:flex-row rounded-md text-white">
+                                        {blogPost.prevArticles && <Link href={`/blog/${blogPost.prevArticles.id}`} className={`pl-6 py-4 w-full h-full bg-hagzi_blue flex justify-start rounded-l-md rounded-r-md sm:rounded-l-md sm:rounded-r-${blogPost.nextArticles ? 'none' : 'md'} cursor-pointer`}>Prev - {blogPost.prevArticles.title_en}</Link>}
+                                        {blogPost.nextArticles && <Link href={`/blog/${blogPost.nextArticles.id}`}  className={`pr-6 py-4 w-full h-full bg-hagzi_blue flex justify-end rounded-l-md rounded-r-md sm:rounded-r-md sm:rounded-l-${blogPost.prevArticles ? 'none' : 'md'} cursor-pointer`}>Next - {blogPost.nextArticles?.title_en}</Link>}
+                                    </div> */}
+                                </div>
+                            )}
+                            rightElement={(
+                                <div className="h-full flex flex-col justify-between">
+                                    <SearchBar/>
+                                    <BecomeAnAgent />
+                                </div>
+                            )}
+                            />
+                    </div>
+                    <div className="container mx-auto px-16 lg:px-10">
                         {relatedPosts.length !== 0 && <div className="flex flex-col gap-2 mb-10">
                             <h1 className="text-2xl font-bold">Related Articles</h1>
                             <div className="flex flex-col gap-4 sm:flex-row">

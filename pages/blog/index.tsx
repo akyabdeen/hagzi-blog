@@ -41,7 +41,7 @@ export default function Blog({ blogArticles, tags, pathname }: { blogArticles: B
     return (
         <>
             <div className="py-5 flex gap-2 text-md bg-white shadow-sm text-hagzi_blue font-semibold">
-                <ul className="container flex justify-center ml-0 lg:ml-36 lg:justify-start">
+                <ul className="container mx-auto flex flex-row justify-center pl-0 md:pl-10 md:justify-start">
                     <li key="home" className="text-gray-400 font-normal">
                         <Link href="/">
                             Home ·
@@ -60,7 +60,7 @@ export default function Blog({ blogArticles, tags, pathname }: { blogArticles: B
                     ))}
                 </ul>
             </div>
-            <div className="container px-0 md:px-10 mx-auto">
+            <div className="container mx-auto flex justify-around px-0 lg:px-10">
                 <BlogGridLayout
                     leftElement={(
                         <div className="flex flex-col gap-4">
@@ -80,7 +80,7 @@ export default function Blog({ blogArticles, tags, pathname }: { blogArticles: B
                                 <ul className="flex flex-wrap gap-2">
                                     {tags.map((tag, tagIndex) => (
                                         <li key={tagIndex}>
-                                            <Tag>{tag.title_en}</Tag>
+                                            <Tag key={tagIndex} title={tag.title_en}>{tag.title_en}</Tag>
                                         </li>
                                     ))}
                                 </ul>

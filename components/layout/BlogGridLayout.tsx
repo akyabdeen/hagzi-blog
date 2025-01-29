@@ -1,6 +1,6 @@
 export default function BlogGridLayout({leftElement, rightElement}: {leftElement: React.ReactNode, rightElement: React.ReactNode}) {
     return (
-        <div className="my-8 container mx-auto lg:px-6">
+        <div className="my-10">
             <div className="flex flex-col mx-6 lg:flex-row lg:container lg:mx-auto gap-4">
                 <div className="lg:w-2/3">
                     {leftElement}
